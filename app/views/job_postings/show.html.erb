@@ -1,4 +1,16 @@
-<div>
-  <h1 class="font-bold text-4xl">JobPostings#show</h1>
-  <p>Find me in app/views/job_postings/show.html.erb</p>
-</div>
+<%= link_to "<- Back to jobs", job_postings_path %>
+
+<h1><%= @job.title %></h1>
+<p><%= @job.company.name %> · <%= @job.company.location %></p>
+<p><%= @job.category.name %></p>
+<% if @job.remote %><p>Remote</p><% end %>
+<% if @job.salary_min %>
+  <p>$<%= number_with_delimiter(@job.salary_min) %> - <%= number_with_delimiter(@job.salary_max) %>/yr</p>
+<% end %>
+<div><%= simple_format @job.description %></div>
+<p>Expires: <%= @job.expires_at.strftime("%B %d, %Y") %></p>
+
+<h2>Related jobs in <%= @job.category.name %></h2>
+<% @related.each do |job| %>
+  <div><%= link_to job.title,  job_posting_path(job) %> at <%= job.company.name %></div>
+<% end %>
