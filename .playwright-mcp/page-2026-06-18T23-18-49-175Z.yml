@@ -1,0 +1,105 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - heading "Job Board" [level=1] [ref=e5]
+      - paragraph [ref=e6]: Find your next opportunity
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - textbox "Search jobs..." [ref=e10]
+        - combobox [ref=e11] [cursor=pointer]:
+          - option "All categories" [selected]
+          - option "Engineering"
+          - option "Design"
+          - option "Marketing"
+          - option "Sales"
+          - option "Operations"
+        - textbox "Location" [ref=e12]
+        - spinbutton [ref=e13]
+        - spinbutton [ref=e14]
+      - generic [ref=e15]:
+        - generic [ref=e16] [cursor=pointer]:
+          - checkbox "Remote only" [ref=e17]
+          - text: Remote only
+        - generic [ref=e18] [cursor=pointer]:
+          - checkbox "Featured only" [ref=e19]
+          - text: Featured only
+        - generic [ref=e20] [cursor=pointer]:
+          - checkbox "Expiring soon" [ref=e21]
+          - text: Expiring soon
+        - button "Filter" [ref=e23] [cursor=pointer]
+    - paragraph [ref=e24]: 8 jobs found
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - link "Remote DevOps Engineer" [ref=e29] [cursor=pointer]:
+              - /url: /job_postings/5
+            - paragraph [ref=e30]: Remote First · Engineering
+          - generic [ref=e31]: Expires Jun 24
+        - generic [ref=e32]:
+          - generic [ref=e33]: Remote
+          - generic [ref=e34]: Featured
+          - generic [ref=e35]: $130,000 – $170,000
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - link "Product Designer" [ref=e39] [cursor=pointer]:
+              - /url: /job_postings/2
+            - paragraph [ref=e40]: Acme Corp · Design
+          - generic [ref=e41]: Expires Jul 13
+        - generic [ref=e42]:
+          - generic [ref=e43]: Featured
+          - generic [ref=e44]: $90,000 – $120,000
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - link "Senior Rails Engineer" [ref=e48] [cursor=pointer]:
+              - /url: /job_postings/1
+            - paragraph [ref=e49]: Startup Labs · Engineering
+          - generic [ref=e50]: Expires Jul 18
+        - generic [ref=e51]:
+          - generic [ref=e52]: Remote
+          - generic [ref=e53]: Featured
+          - generic [ref=e54]: $120,000 – $160,000
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - link "Growth Marketing Manager" [ref=e58] [cursor=pointer]:
+              - /url: /job_postings/3
+            - paragraph [ref=e59]: Global Tech · Marketing
+          - generic [ref=e60]: Expires Jun 23
+        - generic [ref=e61]:
+          - generic [ref=e62]: Remote
+          - generic [ref=e63]: $70,000 – $95,000
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - link "Junior Rails Developer" [ref=e67] [cursor=pointer]:
+              - /url: /job_postings/6
+            - paragraph [ref=e68]: Acme Corp · Engineering
+          - generic [ref=e69]: Expires Jul 03
+        - generic [ref=e71]: $55,000 – $75,000
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - link "Account Executive" [ref=e75] [cursor=pointer]:
+              - /url: /job_postings/4
+            - paragraph [ref=e76]: Enterprise Inc · Sales
+          - generic [ref=e77]: Expires Jul 08
+        - generic [ref=e79]: $60,000 – $80,000
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - link "UX Researcher" [ref=e83] [cursor=pointer]:
+              - /url: /job_postings/7
+            - paragraph [ref=e84]: Startup Labs · Design
+          - generic [ref=e85]: Expires Jun 28
+        - generic [ref=e86]:
+          - generic [ref=e87]: Remote
+          - generic [ref=e88]: $80,000 – $100,000
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - link "Operations Manager" [ref=e92] [cursor=pointer]:
+            - /url: /job_postings/8
+          - paragraph [ref=e93]: Enterprise Inc · Operations
+        - generic [ref=e94]: Expires Jul 02

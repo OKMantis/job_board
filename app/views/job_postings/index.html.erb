@@ -1,29 +1,122 @@
-<h1>Job Board</h1>
+<div class="w-full max-w-4xl mx-auto py-8">
 
-<%= form_with url: job_postings_path, method: :get do |f| %>
-  <%= f.text_field :q, value: params[:q], placeholder: "Search jobs..." %>
-  <%= f.select :category_id, options_from_collection_for_select(@categories, :id, :name, params[:category_id]), { include_blank: "All categories" } %>
-  <%= f.text_field :location, value: params[:location], placeholder: "Location" %>
-  <%= f.number_field :salary_min, value: params[:salary_min], placeholder: "Min salary" %>
-  <%= f.number_field :salary_max, value: params[:salary_max], placeholder: "Max salary" %>
-  <%= f.check_box :remote, checked: params[:remote] == "1" %> Remote only
-  <%= f.check_box :featured, checked: params[:featured] == "1" %> Featured only
-  <%= f.check_box :expiring_soon, check: params[:expiring_soon] == "1" %> Expiring soon
-  <%= f.submit "Filter" %>
-<% end %>
-
-<p><%= @jobs.count %> jobs found</p>
-
-<% @jobs.each do |job| %>
-  <div>
-    <%= link_to job.title, job_posting_path(job) %>
-    <span><%= job.company.name %></span>
-    <span><%= job.category.name %></span>
-    <% if job.remote %><span>Remote</span><% end %>
-    <% if job.featured %><span>Featured</span><% end %>
-    <% if job.salary_min %>
-      <span>$<%= number_with_delimiter(job.salary_min) %> - $<%= number_with_delimiter(job.salary_max) %></span>
-    <% end %>
-    <span>Expires <%= job.expires_at.strftime("%b %d") %></span>
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-sky-900 tracking-tight">Job Board</h1>
+    <p class="text-slate-500 mt-1 text-sm">Find your next opportunity</p>
   </div>
-<% end %>
+
+  <div class="bg-white border border-sky-200 rounded-xl p-5 mb-6">
+    <%= form_with url: job_postings_path, method: :get do |f| %>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <%= f.text_field :q,
+              value: params[:q],
+              placeholder: "Search jobs...",
+              class: "w-full px-3 py-2 border border-sky-200 rounded-lg text-sm bg-sky-50 text-sky-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-colors" %>
+
+        <%= f.select :category_id,
+              options_from_collection_for_select(@categories, :id, :name, params[:category_id]),
+              { include_blank: "All categories" },
+              class: "w-full px-3 py-2 border border-sky-200 rounded-lg text-sm bg-sky-50 text-sky-900 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-colors cursor-pointer" %>
+
+        <%= f.text_field :location,
+              value: params[:location],
+              placeholder: "Location",
+              class: "w-full px-3 py-2 border border-sky-200 rounded-lg text-sm bg-sky-50 text-sky-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-colors" %>
+
+        <%= f.number_field :salary_min,
+              value: params[:salary_min],
+              placeholder: "Min salary",
+              class: "w-full px-3 py-2 border border-sky-200 rounded-lg text-sm bg-sky-50 text-sky-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-colors" %>
+
+        <%= f.number_field :salary_max,
+              value: params[:salary_max],
+              placeholder: "Max salary",
+              class: "w-full px-3 py-2 border border-sky-200 rounded-lg text-sm bg-sky-50 text-sky-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-colors" %>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-5 mt-4">
+        <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer select-none">
+          <%= f.check_box :remote,
+                checked: params[:remote] == "1",
+                class: "w-4 h-4 rounded border-sky-300 text-sky-600 focus:ring-sky-500 cursor-pointer" %>
+          Remote only
+        </label>
+
+        <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer select-none">
+          <%= f.check_box :featured,
+                checked: params[:featured] == "1",
+                class: "w-4 h-4 rounded border-sky-300 text-sky-600 focus:ring-sky-500 cursor-pointer" %>
+          Featured only
+        </label>
+
+        <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer select-none">
+          <%= f.check_box :expiring_soon,
+                checked: params[:expiring_soon] == "1",
+                class: "w-4 h-4 rounded border-sky-300 text-sky-600 focus:ring-sky-500 cursor-pointer" %>
+          Expiring soon
+        </label>
+
+        <div class="ml-auto">
+          <%= f.submit "Filter",
+                class: "px-5 py-2 bg-sky-700 text-white text-sm font-medium rounded-lg hover:bg-sky-800 active:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-colors duration-150 cursor-pointer" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <p class="text-sm text-slate-500 mb-4">
+    <span class="font-semibold text-sky-900"><%= @jobs.count %></span> jobs found
+  </p>
+
+  <div class="space-y-3">
+    <% @jobs.each do |job| %>
+      <div class="bg-white border border-sky-200 rounded-xl p-5 hover:border-sky-400 transition-colors duration-150">
+        <div class="flex items-start justify-between gap-4">
+          <div class="min-w-0">
+            <%= link_to job.title, job_posting_path(job),
+                  class: "text-base font-semibold text-sky-800 hover:text-sky-600 transition-colors duration-150" %>
+            <p class="text-sm text-slate-500 mt-0.5">
+              <%= job.company.name %>
+              <span class="mx-1.5 text-slate-300">·</span>
+              <%= job.category.name %>
+            </p>
+          </div>
+
+          <% if job.expires_at %>
+            <span class="shrink-0 text-xs text-slate-400 mt-0.5">
+              Expires <%= job.expires_at.strftime("%b %d") %>
+            </span>
+          <% end %>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mt-3">
+          <% if job.remote %>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-100 text-sky-700">
+              Remote
+            </span>
+          <% end %>
+
+          <% if job.featured %>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">
+              Featured
+            </span>
+          <% end %>
+
+          <% if job.salary_min %>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
+              $<%= number_with_delimiter(job.salary_min) %> – $<%= number_with_delimiter(job.salary_max) %>
+            </span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @jobs.empty? %>
+      <div class="text-center py-16 text-slate-400">
+        <p class="text-lg font-medium">No jobs match your filters</p>
+        <p class="text-sm mt-1">Try adjusting your search criteria</p>
+      </div>
+    <% end %>
+  </div>
+
+</div>

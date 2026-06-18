@@ -1,0 +1,29 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - link "← Back to jobs" [ref=e4] [cursor=pointer]:
+      - /url: /job_postings
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - heading "Senior Rails Engineer" [level=1] [ref=e7]
+        - generic [ref=e8]: Featured
+      - paragraph [ref=e9]: Startup Labs · San Francisco
+      - generic [ref=e10]:
+        - generic [ref=e11]: Engineering
+        - generic [ref=e12]: Remote
+        - generic [ref=e13]: $120,000 – $160,000/yr
+    - generic:
+      - paragraph
+    - paragraph [ref=e14]: Expires July 18, 2026
+    - generic [ref=e15]:
+      - heading "More jobs in Engineering" [level=2] [ref=e16]
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - link "Remote DevOps Engineer" [ref=e20] [cursor=pointer]:
+              - /url: /job_postings/5
+            - paragraph [ref=e21]: Remote First
+          - generic [ref=e22]: Remote
+        - generic [ref=e24]:
+          - link "Junior Rails Developer" [ref=e25] [cursor=pointer]:
+            - /url: /job_postings/6
+          - paragraph [ref=e26]: Acme Corp
