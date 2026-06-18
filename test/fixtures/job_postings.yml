@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  salary_min: 1
+  salary_max: 1
+  status: MyString
+  remote: false
+  featured: false
+  posted_at: 2026-06-18 23:41:39
+  expires_at: 2026-06-18 23:41:39
+  company: one
+  category: one
+
+two:
+  title: MyString
+  description: MyText
+  salary_min: 1
+  salary_max: 1
+  status: MyString
+  remote: false
+  featured: false
+  posted_at: 2026-06-18 23:41:39
+  expires_at: 2026-06-18 23:41:39
+  company: two
+  category: two
